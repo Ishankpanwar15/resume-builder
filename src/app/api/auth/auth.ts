@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { supabase } from '../../../../lib/supabaseClient';
+import { User } from 'next-auth';
 
 export const useUser = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>();
 
   useEffect(() => {
     const session = supabase.auth.getSession().then(({ data }) => {
