@@ -21,10 +21,12 @@ const home = () => {
 
           <div className="flex justify-start space-x-4 mt-6">
             <button className="bg-violet-500 text-white px-6 py-2 rounded hover:bg-violet-600">
+              <a href="/create-resume"></a>
               Create Resume
             </button>
             <button className="bg-violet-500 text-white px-6 py-2 rounded hover:bg-violet-600">
-              Login
+              <a href="/login">
+              Login</a>
             </button>
           </div>
 
