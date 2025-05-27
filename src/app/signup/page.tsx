@@ -38,48 +38,54 @@ useEffect(() => {
 }, [router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-700 px-4">
-      <div className="max-w-md w-full p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Create an Account</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-800 px-4">
+      <div className="max-w-md w-full p-6 rounded-lg shadow-xl bg-gray-600">
+        <h2 className="text-2xl text-gray-400 font-semibold mb-4">Create an Account</h2>
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium">Username</label>
+            
             <input
               type="text"
               required
+              placeholder='Username'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm"
+              className="mt-1 block w-full bg-violet-600 text-white px-4 py-2 border-black rounded-3xl shadow-sm"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium">Email</label>
+          <div>            
             <input
               type="email"
               required
+              placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm"
+              className="mt-1 block w-full text-white px-3 py-2 border-black bg-violet-600 rounded-3xl shadow-sm"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Password</label>
             <input
               type="password"
               required
+              placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm"
+              className="mt-1 block w-full px-3 py-2 text-white border-black bg-violet-600 rounded-3xl shadow-sm"
             />
           </div>
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-            Sign Up
-          </button>
-          <button>
-            <a href="/login" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-               Log in
-            </a>
-          </button>
+          <div className='w-full flex justify-center items-center space-x-4 mt-4'>
+            <button type="submit" className="w-[6rem] bg-violet-800 text-white py-2 rounded-3xl hover:bg-violet-900">
+              Sign Up
+            </button>
+          </div>
+          <div className='w-full flex justify-center items-center space-x-4 mt-4'>
+             <p className="text-center text-sm text-gray-300">
+                Don&apos;t have an account?{' '}
+                <a href="/login" className="text-violet-400 hover:underline">
+                  login
+                </a>
+             </p>
+          </div>
         </form>
 
         {error && <p className="text-red-600 mt-4">{error}</p>}
