@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../lib/supabaseClient';
 
@@ -25,6 +25,15 @@ export default function LoginPage() {
       router.push('/dashboard'); // redirect to dashboard or homepage after login
     }
   };
+useEffect(() => {
+  const checkSession = async () => {
+    const { data } = await supabase.auth.getSession();
+    if (data.session?.user) {
+      router.replace('/dashboard');
+    }
+  };
+  checkSession();   
+}, [router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800 px-4">
@@ -37,7 +46,7 @@ export default function LoginPage() {
         {error && <p className="text-red-600 text-sm">{error}</p>}
 
         <input
-          className="w-full px-3 py-2 border rounded-md"
+          className="w-full px-3 py-2 border border-white rounded-md"
           type="email"
           placeholder="Email"
           value={email}
@@ -45,7 +54,7 @@ export default function LoginPage() {
           required
         />
         <input
-          className="w-full px-3 py-2 border rounded-md"
+          className="w-full px-3 py-2 border border-white rounded-md"
           type="password"
           placeholder="Password"
           value={password}
@@ -55,7 +64,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 active:scale-90 duration-500 transition-transform"
         >
           Login
         </button>
