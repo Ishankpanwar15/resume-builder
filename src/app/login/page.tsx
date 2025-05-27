@@ -20,7 +20,7 @@ export default function LoginPage() {
         if (res.ok) {
             router.push('/dashboard')
       } else {
-        setError(data.message)add 
+        setError(data.message) 
       }
    }
 
