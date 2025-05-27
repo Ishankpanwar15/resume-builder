@@ -38,9 +38,10 @@ export default function DashboardPage() {
     }
   };
 
-  
+
   return (
-    <div className="h-screen w-full bg-gray-100 p-4 flex">
+    <div className='w-full h-screen bg-gray-100 '>
+    <div className=" p-4 flex">
       <div className=" w-full ">
         <h2 className="text-2xl font-semibold mb-4 text-black">Dashboard</h2>
         <p className="text-gray-600">Welcome to your dashboard!</p>
@@ -50,6 +51,12 @@ export default function DashboardPage() {
             Logout
         </button>
       </div>
+    </div>
+    <div className='p-4 '>
+        <button 
+        onClick={() => router.push('/create-resume')}
+        className='bg-violet-800 p-2 rounded-2xl hover:bg-violet-600 active:scale-110 duration-300'>Create Resume</button>
+    </div>
     </div>
   );
 }
